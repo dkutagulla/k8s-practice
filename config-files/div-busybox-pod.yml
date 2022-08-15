@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: div-busybox-pod
+  labels:
+    app: div-busybox-pod-app
+spec:
+  containers:
+  - image: busybox
+    command: [ "sleep", "3600" ]
+    name: div-busybox-pod
+

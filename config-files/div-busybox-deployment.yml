@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: div-busybox-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: div-busybox-pod-app
+  template:
+    metadata:
+      name: div-busybox-pod
+      labels:
+        app: div-busybox-pod-app
+    spec:
+      containers:
+          - image: busybox
+            command: [ "sleep", "3600" ]
+            name: div-busybox-pod
+      

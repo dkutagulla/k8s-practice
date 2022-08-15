@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: div-echoserver-rs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: div-echoserver-pod-app
+  template:
+    metadata:
+      name: div-echoserver-pod
+      labels:
+        app: div-echoserver-pod-app
+    spec:
+      containers:
+        - image: k8s.gcr.io/echoserver:1.4
+          name: div-echoserver-pod
+          ports:
+            - containerPort: 8080
