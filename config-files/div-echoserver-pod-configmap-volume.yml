@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: div-echoserver-pod-configmap-volume
+  labels:
+      app: div-echoserver-pod-app
+
+
+
+spec:
+  containers:
+  - image: k8s.gcr.io/echoserver:1.4
+    name: div-echoserver-pod
+    volumeMounts: 
+        - mountPath: /etc/conf
+          name: app-config-volume
+  volumes:
+    - name: app-config-volume
+      configMap:
+        name: div-app-config3
+    

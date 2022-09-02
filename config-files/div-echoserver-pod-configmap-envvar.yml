@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: div-echoserver-pod-configmap-envvar
+  labels:
+      app: div-echoserver-pod-app
+spec:
+  containers:
+  - image: k8s.gcr.io/echoserver:1.4
+    name: div-echoserver-pod
+    env:
+      - name: APP_DB
+        valueFrom:
+          configMapKeyRef:
+            name: div-app-config3
+            key: APP_DB
+

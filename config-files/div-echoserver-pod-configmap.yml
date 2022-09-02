@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: div-echoserver-pod
+  name: div-echoserver-pod-configmap
   labels:
       app: div-echoserver-pod-app
 spec:
